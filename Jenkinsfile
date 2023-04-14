@@ -1,16 +1,20 @@
 pipeline {
   agent any
-  stages {
-    stage('Install dependencies') {
-      steps {
-        sh 'npm install'
-      }
+   stages {
+    stage('install playwright') {
+        steps {
+            script {
+              bat "npm init -y"
+              bat "npm install cypress"
+            }
+       }
     }
-    
     stage('Run tests') {
-      steps {
-        sh 'npm run test'
-      }
+        steps {
+            script {
+              bat "npx cypress run"
+            }       
+       }
     }
   }
 }
