@@ -1,7 +1,7 @@
 pipeline {
   agent any
    stages {
-    stage('install playwright') {
+    stage('Install dependencies') {
         steps {
             script {
               bat "npm init -y"
